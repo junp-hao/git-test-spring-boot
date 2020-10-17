@@ -35,12 +35,12 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
             }
 
             //注册拦截器
-            @Override
-            public void addInterceptors(InterceptorRegistry registry) {
-            //super.addInterceptors(registry);配置拦截器，登陆页，首页不拦截
-                registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
-                        .excludePathPatterns("/index.html","/","/user/login","/**/*.css", "/**/*.js", "/**/*.png", "/**/*.jpg", "/**/*.jpeg", "/**/*.gif", "/**/fonts/*", "/**/*.svg");
-            }
+//            @Override
+//            public void addInterceptors(InterceptorRegistry registry) {
+//            //super.addInterceptors(registry);配置拦截器，登陆页，首页不拦截
+//                registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
+//                        .excludePathPatterns("/query","/index.html","/","/user/login","/**/*.css", "/**/*.js", "/**/*.png", "/**/*.jpg", "/**/*.jpeg", "/**/*.gif", "/**/fonts/*", "/**/*.svg");
+//            }
         };
         return adapter;
     }

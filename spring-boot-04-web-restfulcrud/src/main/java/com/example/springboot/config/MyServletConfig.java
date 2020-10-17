@@ -19,7 +19,7 @@ public class MyServletConfig {
 
     @Bean
     public ServletListenerRegistrationBean myListener(){
-        ServletListenerRegistrationBean<Mylistener> registrationBean = new ServletListenerRegistrationBean<>(new Mylistener());
+        ServletListenerRegistrationBean<Mylistener> registrationBean = new ServletListenerRegistrationBean<Mylistener>(new Mylistener());
         return registrationBean;
     }
 }

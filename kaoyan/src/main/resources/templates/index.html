@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<title></title>
+		<style type="text/css">
+		/* 	.bg{
+				position: absolute;
+				top:0;
+				left:0;
+				width: 100%;
+				height:auto;
+				z-index: -1;	
+			} */
+			
+			@media only screen and (min-width: 950px)     
+			{            
+			.bg{
+			background:url(#) no-repeat center;
+			background-size:cover
+		
+		
+			　}
+			}
+			@media only screen and (min-width: 400px) and (max-width: 950px)   
+			{  
+			   .bg{
+			           background:url(img/kaoyan2.png) no-repeat center;
+					  
+					background-size:cover
+					
+			        }
+			}
+			@media only screen and (max-width: 400px)   
+			{   
+			     .bg{
+			             background:url(img/kaoyan3.png) no-repeat center;
+						 background-size:cover
+			          }
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css" />
+		<script type="text/javascript" src="layui/layui.js"></script>
+		<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+	</head>
+	<body class="bg" >
+
+		<div class="layui-container fly-marginTop" style="margin-top:364px;">
+		  <div class="fly-panel" pad20 style="padding-top: 5px;">
+		  
+		    <div class="layui-form layui-form-pane">
+		      <div class="layui-tab layui-tab-brief" lay-filter="user">
+		        <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
+		          <div class="layui-tab-item layui-show">
+		            <form th:action="@{/upload}" method="post" enctype="multipart/form-data">
+		              <div class="layui-row layui-col-space15 layui-form-item">
+		                <center ><input type="file" name="file_upload"  class="layui-btn layui-btn-lg layui-btn-radius "  ></center>
+						 <!--<center ><button type="button"  class="layui-btn layui-btn-lg layui-btn-radius " id="test5" ><strong >上传祝福视频</strong></button></center>-->
+		              </div>
+		   
+		              <div class="layui-form-item layui-form-text">
+		                 <label class="layui-form-label">文字祝福</label>
+		                 <div class="layui-input-block">
+		                  <textarea id="L_content" name="content" required lay-verify="required" placeholder="在这里写下你的祝福" class="layui-textarea fly-editor" style="height: 260px;"></textarea>
+		                  
+		                 </div>
+		               </div>
+		      
+		              <div class="layui-form-item">
+						  <center>
+		                <button class="layui-btn" lay-filter="*" lay-submit id="fabu">立即发布</button>
+						</center>
+		              </div>
+		            </form>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+	</body>
+
+	<script>
+        layui.use('upload', function(){
+            var upload = layui.upload;
+
+            //执行实例
+            var uploadInst = upload.render({
+                elem: '#test5' //绑定元素
+                ,url: '/upload/' //上传接口
+                ,done: function(res){
+                    //上传完毕回调
+                }
+                ,error: function(){
+                    //请求异常回调
+                }
+            });
+        });
+	</script>
+
+	<script type="text/javascript">
+			$(function () {
+                    $("#fabu").click(function () {
+                        if ($("#L_content").val()!=""){
+                            console.log($("#L_content").val());
+                        alert("提交成功");
+                        }
+                    })
+            })
+	</script>
+</html>
